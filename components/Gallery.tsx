@@ -47,12 +47,12 @@ export default function Gallery({ media }: { media: Media[] }) {
 
     return (
       <>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 sm:[grid-template-rows:repeat(2,minmax(0,1fr))]">
+        <div className="grid grid-cols-2 gap-3 sm:h-[460px] sm:grid-cols-3 sm:gap-4 sm:[grid-template-rows:repeat(2,minmax(0,1fr))] md:h-[560px] lg:h-[640px]">
           {/* Centre feature photo */}
           <button
             type="button"
             onClick={() => open(feature)}
-            className="group relative col-span-2 aspect-[4/3] cursor-zoom-in overflow-hidden rounded-2xl bg-offwhite shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 sm:col-span-1 sm:col-start-2 sm:row-span-2 sm:row-start-1 sm:aspect-auto"
+            className="group relative col-span-2 aspect-[4/3] cursor-zoom-in overflow-hidden rounded-2xl bg-offwhite shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 sm:col-span-1 sm:col-start-2 sm:row-span-2 sm:row-start-1 sm:aspect-auto sm:h-full"
             aria-label={`Open image: ${feature.alt}`}
           >
             <Image
@@ -71,7 +71,7 @@ export default function Gallery({ media }: { media: Media[] }) {
               key={m.src}
               type="button"
               onClick={() => open(m)}
-              className={`group relative aspect-[4/3] cursor-zoom-in overflow-hidden rounded-2xl bg-offwhite shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 sm:aspect-auto ${cornerPlacement[i]}`}
+              className={`group relative aspect-[4/3] cursor-zoom-in overflow-hidden rounded-2xl bg-offwhite shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40 sm:aspect-auto sm:h-full ${cornerPlacement[i]}`}
               aria-label={`Open image: ${m.alt}`}
             >
               <Image

@@ -155,7 +155,13 @@ export const properties: Property[] = [
           "Come for the day to park, eat and relax by the water. Swimming, basketball " +
           "and football are free for in-house guests; day-visit pricing is on request.",
         // price intentionally omitted — day-visit rate quoted on request
-        // Day / event / activity cards render text-only (no images).
+        media: [
+          {
+            type: "image",
+            src: "/properties/kamuthanga/day-pass.webp",
+            alt: "Covered timber deck bar with high stools overlooking greenery for day visits at Kamuthanga",
+          },
+        ],
       },
       {
         id: "host-an-event",
