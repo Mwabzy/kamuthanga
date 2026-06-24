@@ -22,7 +22,7 @@ export const properties: Property[] = [
     tagline: "A working fish farm, reimagined as a weekend escape.",
     location: "Machakos, ~75 min from Nairobi",
     status: "live",
-    whatsapp: "254700000000", // TODO: replace with the real Mwabili WhatsApp number (E.164, no +)
+    whatsapp: "254796410030", // Mwabili enquiry line (E.164, no +)
     hero: {
       type: "image",
       src: "/properties/kamuthanga/hero.webp",
@@ -32,13 +32,14 @@ export const properties: Property[] = [
       "Set among spring-fed ponds in the Machakos countryside, Kamuthanga is a working " +
       "tilapia farm that opens its gates for slow weekends. Wake to birdsong, walk the " +
       "water's edge, grill your own catch, and let the day stretch out. Close enough to " +
-      "Nairobi for a spontaneous getaway, far enough to feel like somewhere else entirely.",
+      "Nairobi for a spontaneous getaway, far enough to feel like somewhere else entirely. " +
+      "Rooms come self-catering, with an in-house chef and full meal options on request.",
     highlights: [
-      "Spring-fed ponds on a real working fish farm",
+      "Working fish & pig farm with spring-fed ponds",
       "~75 minutes from Nairobi on a good road",
-      "Catch & grill your own tilapia",
-      "Family-friendly, pet-friendly grounds",
-      "Day visits, overnight stays & private events",
+      "Free swimming, basketball & football for in-house guests",
+      "Boat rides, fishing & farm tours on site",
+      "Self-catering, or add an in-house chef & full-board meals",
     ],
     gallery: [
       {
@@ -79,10 +80,12 @@ export const properties: Property[] = [
         name: "Old Restaurant Rooms",
         description:
           "Characterful rooms in the converted old restaurant, each with a handy " +
-          "kitchenette for slow mornings and late-night tea.",
-        capacity: "Single & double rooms",
-        features: ["Kitchenette", "Ensuite", "Garden access", "Free parking"],
-        price: { amount: 6500, currency: "KES", per: "night" },
+          "kitchenette for slow mornings and late-night tea. Single (one person) " +
+          "KES 8,000 · Double (two people) KES 12,500. Self-catering, or add meals.",
+        capacity: "Single (1 person) & double (2 people) rooms",
+        features: ["Kitchenette", "Ensuite", "Self-catering option", "Free parking"],
+        // "from" price = single occupancy; double is KES 12,500 (see description).
+        price: { amount: 8000, currency: "KES", per: "night" },
         media: [
           {
             type: "image",
@@ -100,11 +103,17 @@ export const properties: Property[] = [
         id: "family-house",
         name: "Family House",
         description:
-          "A relaxed two-bedroom house that comfortably fits two couples or a small " +
-          "family, with a shared living space and views over the grounds.",
-        capacity: "2 bedrooms · sleeps 4 (two couples)",
-        features: ["2 bedrooms", "Full kitchen", "Living room", "Private veranda"],
-        price: { amount: 14000, currency: "KES", per: "night" },
+          "A relaxed two-bedroom house with a sitting room, dining room and full " +
+          "kitchen — comfortable for up to four adults. Self-catering, or add an " +
+          "in-house chef for KES 2,500 per day.",
+        capacity: "2 bedrooms · maximum 4 adults",
+        features: [
+          "2 bedrooms",
+          "Sitting & dining room",
+          "Full kitchen",
+          "Self-catering / chef option",
+        ],
+        price: { amount: 20000, currency: "KES", per: "night" },
         media: [
           {
             type: "image",
@@ -122,21 +131,22 @@ export const properties: Property[] = [
         id: "cabin",
         name: "Cabin",
         description:
-          "A cosy stand-alone cabin tucked close to the water — the quietest, most " +
-          "private spot on the farm. Ideal for a couple or a solo reset.",
-        capacity: "Max 3 people",
-        features: ["Pond views", "Ensuite", "Private deck", "Outdoor seating"],
-        price: { amount: 8500, currency: "KES", per: "night" },
+          "A cosy stand-alone cabin with one bedroom, a sitting room, two bathrooms " +
+          "and a kitchenette — the quietest, most private spot on the farm. " +
+          "Self-catering, or add an in-house chef for KES 2,500 per day.",
+        capacity: "1 bedroom · maximum 3 adults",
+        features: ["1 bedroom", "2 bathrooms", "Kitchenette", "Sitting room"],
+        price: { amount: 15000, currency: "KES", per: "night" },
         media: [
           {
             type: "image",
             src: "/properties/kamuthanga/cabin-1.webp",
-            alt: "Cabin exterior beside the pond",
+            alt: "The Cabin's timber-clad sitting room with an L-shaped sofa at Kamuthanga",
           },
           {
             type: "image",
             src: "/properties/kamuthanga/cabin-2.webp",
-            alt: "Cabin interior with a double bed and pond view",
+            alt: "Covered veranda with woven armchairs at the Cabin, Kamuthanga",
           },
         ],
       },
@@ -147,9 +157,9 @@ export const properties: Property[] = [
         kind: "day",
         name: "Day Pass",
         description:
-          "Park, eat, and chill at the farm for the day. Bring the family, walk the " +
-          "ponds, and enjoy a long lunch by the water — no overnight stay required.",
-        price: { amount: 1000, currency: "KES", per: "person" },
+          "Come for the day to park, eat and relax by the water. Swimming, basketball " +
+          "and football are free for in-house guests; day-visit pricing is on request.",
+        // price intentionally omitted — day-visit rate quoted on request
         media: [
           {
             type: "image",
@@ -176,21 +186,44 @@ export const properties: Property[] = [
         ],
       },
       {
-        id: "catch-and-grill",
+        id: "fish-farm-tour",
         kind: "activity",
-        name: "Catch & Grill",
+        name: "Fish Farm Tour",
         description:
-          "The signature Kamuthanga activity: catch your own tilapia straight from the " +
-          "farm ponds, then grill it lakeside with our team. Hands-on, delicious, and " +
-          "a hit with kids and adults alike.",
-        price: { amount: 1500, currency: "KES", per: "person" },
+          "Go behind the scenes of the working tilapia farm — see the spring-fed " +
+          "ponds and how it all runs. A favourite with kids and adults alike.",
+        price: { amount: 500, currency: "KES", per: "person" },
         media: [
           {
             type: "image",
             src: "/properties/kamuthanga/catch-and-grill.webp",
-            alt: "Freshly caught tilapia on the grill",
+            alt: "Tilapia ponds on the working fish farm",
           },
         ],
+      },
+      {
+        id: "fishing",
+        kind: "activity",
+        name: "Fishing",
+        description:
+          "Cast a line and catch your own tilapia straight from the farm ponds.",
+        price: { amount: 300, currency: "KES", per: "person" },
+      },
+      {
+        id: "boat-ride",
+        kind: "activity",
+        name: "Boat Ride",
+        description:
+          "Glide across the ponds and take in the farm from the water.",
+        price: { amount: 100, currency: "KES", per: "person" },
+      },
+      {
+        id: "pig-farm-tour",
+        kind: "activity",
+        name: "Pig Farm Tour",
+        description:
+          "Meet the pigs and see the other side of the working farm.",
+        price: { amount: 300, currency: "KES", per: "person" },
       },
     ],
   },
@@ -203,7 +236,7 @@ export const properties: Property[] = [
     tagline: "A lakeside hideaway in the Rift Valley — coming soon.",
     location: "Naivasha, ~90 min from Nairobi",
     status: "coming-soon",
-    whatsapp: "254700000000", // TODO: replace with the real Mwabili WhatsApp number
+    whatsapp: "254796410030", // Mwabili enquiry line (E.164, no +)
     hero: {
       type: "image",
       src: "/properties/naivasha-retreat/hero.webp",

@@ -20,17 +20,20 @@ export function formatAmount(money: Money): string {
 }
 
 /**
- * Lowest nightly/visit price across a property's units and visit options,
- * used for the "from KES X" hint on property cards. Returns null if nothing
- * is priced yet (e.g. coming-soon).
+ * Lowest price used for the "from KES X" hint on property cards.
+ *
+ * Prefers overnight stays (the headline product) when the property has any, so
+ * the hint reads as a nightly rate rather than the cheapest add-on activity.
+ * Falls back to visit options for day/event-only properties. Returns null if
+ * nothing is priced yet (e.g. coming-soon).
  */
 export function fromPrice(property: Property): Money | null {
-  const priced: Money[] = [
-    ...property.units.map((u) => u.price),
-    ...property.visitOptions
-      .map((v) => v.price)
-      .filter((p): p is Money => Boolean(p)),
-  ];
+  const stayPrices: Money[] = property.units.map((u) => u.price);
+  const visitPrices: Money[] = property.visitOptions
+    .map((v) => v.price)
+    .filter((p): p is Money => Boolean(p));
+
+  const priced = stayPrices.length > 0 ? stayPrices : visitPrices;
   if (priced.length === 0) return null;
   return priced.reduce((min, p) => (p.amount < min.amount ? p : min));
 }
