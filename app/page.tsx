@@ -24,10 +24,10 @@ export default function HubPage() {
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-sage" />
               Weekend escapes near Nairobi
             </p>
-            <h1 className="mt-4 max-w-3xl text-balance text-4xl leading-[1.1] sm:text-6xl">
+            <h1 className="h-fluid-1 mt-4 max-w-3xl text-balance">
               Handpicked places to slow down, just outside the city.
             </h1>
-            <p className="mt-5 max-w-2xl text-pretty text-lg text-muted">
+            <p className="mt-5 max-w-2xl text-pretty text-[clamp(1.05rem,2.2vw,1.25rem)] text-muted">
               {site.name} curates a small collection of countryside escapes for
               day visits, overnight stays, and private events. Find a place,
               then plan your visit with us over WhatsApp.

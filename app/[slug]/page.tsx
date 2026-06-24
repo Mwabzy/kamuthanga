@@ -62,8 +62,12 @@ function SectionTitle({
   return (
     <Reveal>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl sm:text-4xl">{title}</h2>
-      {intro && <p className="mt-3 max-w-2xl text-lg text-muted">{intro}</p>}
+      <h2 className="h-fluid-2 mt-3">{title}</h2>
+      {intro && (
+        <p className="mt-3 max-w-2xl text-[clamp(1rem,2.2vw,1.125rem)] text-muted">
+          {intro}
+        </p>
+      )}
     </Reveal>
   );
 }
@@ -93,10 +97,8 @@ export default function PropertyPage({ params }: { params: Params }) {
         <section className="container-x grid grid-cols-1 gap-10 py-16 lg:grid-cols-[1.4fr_1fr] sm:py-20">
           <Reveal>
             <p className="eyebrow">About</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl">
-              Your stay at {property.name}
-            </h2>
-            <p className="mt-5 text-pretty text-lg leading-relaxed text-ink/80">
+            <h2 className="h-fluid-2 mt-3">Your stay at {property.name}</h2>
+            <p className="mt-5 text-pretty text-[clamp(1.05rem,2.2vw,1.2rem)] leading-relaxed text-ink/80">
               {property.about}
             </p>
             <div className="mt-7">
@@ -171,8 +173,8 @@ export default function PropertyPage({ params }: { params: Params }) {
         {/* Closing CTA */}
         <section className="container-x py-12">
           <Reveal>
-            <div className="overflow-hidden rounded-3xl bg-forest px-8 py-14 text-center shadow-lift sm:px-16">
-              <h2 className="text-balance text-3xl text-offwhite sm:text-4xl">
+            <div className="overflow-hidden rounded-3xl bg-forest px-6 py-12 text-center shadow-lift sm:px-12 sm:py-14 lg:px-16">
+              <h2 className="h-fluid-2 text-balance text-offwhite">
                 Ready to plan your visit to {property.name}?
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-pretty text-offwhite/80">

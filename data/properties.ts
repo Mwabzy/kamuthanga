@@ -26,7 +26,7 @@ export const properties: Property[] = [
     hero: {
       type: "image",
       src: "/properties/kamuthanga/hero.webp",
-      alt: "Sunlit ponds and green lawns at Kamuthanga fish farm",
+      alt: "Spring-fed pond at golden hour with a timber viewing deck and acacia trees at Kamuthanga",
     },
     about:
       "Set among spring-fed ponds in the Machakos countryside, Kamuthanga is a working " +
@@ -90,12 +90,12 @@ export const properties: Property[] = [
           {
             type: "image",
             src: "/properties/kamuthanga/old-restaurant-rooms-1.webp",
-            alt: "Double room in the old restaurant with kitchenette",
+            alt: "Double bedroom with a carved wooden bed and timber-panelled wall in the Old Restaurant Rooms",
           },
           {
             type: "image",
             src: "/properties/kamuthanga/old-restaurant-rooms-2.webp",
-            alt: "Ensuite bathroom in the old restaurant rooms",
+            alt: "The carved 'Old Restaurant' sign above the timber-clad building at Kamuthanga",
           },
         ],
       },
@@ -118,12 +118,12 @@ export const properties: Property[] = [
           {
             type: "image",
             src: "/properties/kamuthanga/family-house-1.webp",
-            alt: "Family House exterior with veranda",
+            alt: "Family House living room with a sofa, armchair and garden-view windows",
           },
           {
             type: "image",
             src: "/properties/kamuthanga/family-house-2.webp",
-            alt: "Family House living room",
+            alt: "Family House covered patio with a wooden dining table for six",
           },
         ],
       },
@@ -160,13 +160,7 @@ export const properties: Property[] = [
           "Come for the day to park, eat and relax by the water. Swimming, basketball " +
           "and football are free for in-house guests; day-visit pricing is on request.",
         // price intentionally omitted — day-visit rate quoted on request
-        media: [
-          {
-            type: "image",
-            src: "/properties/kamuthanga/day-pass.webp",
-            alt: "Families relaxing on the lawn during a day visit",
-          },
-        ],
+        // Day / event / activity cards render text-only (no images).
       },
       {
         id: "host-an-event",
@@ -177,13 +171,6 @@ export const properties: Property[] = [
           "retreats. We'll help you shape the day around the water and the grounds. " +
           "Pricing on request based on group size and needs.",
         // price intentionally omitted — events are quoted on request
-        media: [
-          {
-            type: "image",
-            src: "/properties/kamuthanga/event.webp",
-            alt: "Outdoor event set-up with tables by the ponds",
-          },
-        ],
       },
       {
         id: "fish-farm-tour",
@@ -193,13 +180,6 @@ export const properties: Property[] = [
           "Go behind the scenes of the working tilapia farm — see the spring-fed " +
           "ponds and how it all runs. A favourite with kids and adults alike.",
         price: { amount: 500, currency: "KES", per: "person" },
-        media: [
-          {
-            type: "image",
-            src: "/properties/kamuthanga/catch-and-grill.webp",
-            alt: "Tilapia ponds on the working fish farm",
-          },
-        ],
       },
       {
         id: "fishing",
