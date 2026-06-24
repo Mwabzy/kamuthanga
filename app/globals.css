@@ -83,4 +83,21 @@
     opacity: 1;
     transform: none;
   }
+
+  /* Hero "Ken Burns" — a slow, continuous zoom/pan on the hero media.
+     Subtle and editorial, not bouncy. Motion-safe only. */
+  @keyframes hero-kenburns {
+    from {
+      transform: scale(1.03) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.13) translate3d(-1.5%, -1.5%, 0);
+    }
+  }
+
+  .hero-motion {
+    animation: hero-kenburns 24s ease-in-out infinite alternate;
+    transform-origin: 55% 45%;
+    will-change: transform;
+  }
 }

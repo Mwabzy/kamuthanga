@@ -17,7 +17,7 @@ export default function Hero({ media, name, tagline, location }: HeroProps) {
     <section className="relative h-[80svh] min-h-[440px] max-h-[860px] w-full overflow-hidden">
       {media.type === "video" ? (
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="hero-motion absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
@@ -34,7 +34,7 @@ export default function Hero({ media, name, tagline, location }: HeroProps) {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="hero-motion object-cover"
         />
       )}
 

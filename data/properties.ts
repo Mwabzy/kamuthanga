@@ -42,6 +42,12 @@ export const properties: Property[] = [
       "Self-catering, or add an in-house chef & full-board meals",
     ],
     gallery: [
+      // Centrepiece of the bento — a stay/interior shot framed by the amenity photos.
+      {
+        type: "image",
+        src: "/properties/kamuthanga/family-house-1.webp",
+        alt: "Bright Family House living room, one of the stays at Kamuthanga",
+      },
       {
         type: "image",
         src: "/properties/kamuthanga/gallery-pool.webp",
