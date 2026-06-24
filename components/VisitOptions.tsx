@@ -10,14 +10,14 @@ const GROUPS: { kind: VisitKind; title: string; blurb: string }[] = [
     blurb: "Park, eat, and chill for the day — no overnight stay needed.",
   },
   {
-    kind: "event",
-    title: "Events",
-    blurb: "Birthdays, showers, retreats and intimate celebrations.",
-  },
-  {
     kind: "activity",
     title: "Activities",
     blurb: "Hands-on experiences that make the trip memorable.",
+  },
+  {
+    kind: "event",
+    title: "Events",
+    blurb: "Birthdays, showers, retreats and intimate celebrations.",
   },
 ];
 

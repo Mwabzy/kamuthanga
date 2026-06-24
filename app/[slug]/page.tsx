@@ -128,7 +128,21 @@ export default function PropertyPage({ params }: { params: Params }) {
           )}
         </section>
 
-        {/* Stays */}
+        {/* Ways to visit (Day / Activities / Events) — shown before overnight stays */}
+        {property.visitOptions.length > 0 && (
+          <section className="container-x py-12">
+            <SectionTitle
+              eyebrow="Day · Activities · Events"
+              title="Ways to visit"
+              intro="Not staying the night? You can still park, eat and chill for the day, join an activity, or host a private event."
+            />
+            <div className="mt-10">
+              <VisitOptions property={property} />
+            </div>
+          </section>
+        )}
+
+        {/* Stays — overnight options, shown last */}
         {property.units.length > 0 && (
           <section className="container-x py-12">
             <SectionTitle
@@ -142,20 +156,6 @@ export default function PropertyPage({ params }: { params: Params }) {
                   <UnitCard property={property} unit={unit} />
                 </Reveal>
               ))}
-            </div>
-          </section>
-        )}
-
-        {/* Ways to visit (Day / Events / Activities) */}
-        {property.visitOptions.length > 0 && (
-          <section className="container-x py-12">
-            <SectionTitle
-              eyebrow="Day · Events · Activities"
-              title="Ways to visit"
-              intro="Not staying the night? You can still park, eat and chill for the day, host a private event, or join an activity."
-            />
-            <div className="mt-10">
-              <VisitOptions property={property} />
             </div>
           </section>
         )}
