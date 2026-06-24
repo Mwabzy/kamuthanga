@@ -44,34 +44,23 @@ export const properties: Property[] = [
     gallery: [
       {
         type: "image",
-        src: "/properties/kamuthanga/gallery-1.webp",
-        alt: "Morning mist over the fish ponds",
+        src: "/properties/kamuthanga/gallery-pool.webp",
+        alt: "Outdoor swimming pool with a timber deck, lawns and big-sky clouds at Kamuthanga",
       },
       {
         type: "image",
-        src: "/properties/kamuthanga/gallery-2.webp",
-        alt: "Outdoor dining deck overlooking the water",
+        src: "/properties/kamuthanga/gallery-garden.webp",
+        alt: "Lush green garden lawn framed by banana leaves and shrubs",
       },
       {
         type: "image",
-        src: "/properties/kamuthanga/gallery-3.webp",
-        alt: "Guests grilling fresh tilapia by the pond",
-      },
-      {
-        type: "video",
-        src: "/properties/kamuthanga/gallery-tour.mp4",
-        poster: "/properties/kamuthanga/gallery-tour-poster.jpg",
-        alt: "Walking tour of the Kamuthanga grounds",
+        src: "/properties/kamuthanga/gallery-lounge.webp",
+        alt: "Shaded outdoor lounge with a glass-topped deck under a canopy",
       },
       {
         type: "image",
-        src: "/properties/kamuthanga/gallery-4.webp",
-        alt: "Cabin interior with warm morning light",
-      },
-      {
-        type: "image",
-        src: "/properties/kamuthanga/gallery-5.webp",
-        alt: "Footpath winding between the ponds at golden hour",
+        src: "/properties/kamuthanga/gallery-party.webp",
+        alt: "Timber entertainment area with a DJ booth and dance floor for events",
       },
     ],
     units: [
