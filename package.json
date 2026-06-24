@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "convert-media": "tsx scripts/convert-media.ts"
+    "convert-media": "tsx scripts/convert-media.ts",
+    "generate-og": "node scripts/generate-og.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.3.19",
