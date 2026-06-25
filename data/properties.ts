@@ -45,8 +45,8 @@ export const properties: Property[] = [
       // Centrepiece of the bento — a stay/interior shot framed by the amenity photos.
       {
         type: "image",
-        src: "/properties/kamuthanga/family-house-1.webp",
-        alt: "Bright Family House living room, one of the stays at Kamuthanga",
+        src: "/properties/kamuthanga/familyhouse-living.webp",
+        alt: "Bright Family House living and dining area, one of the stays at Kamuthanga",
       },
       {
         type: "image",
@@ -94,13 +94,23 @@ export const properties: Property[] = [
         media: [
           {
             type: "image",
+            src: "/properties/kamuthanga/oldrestaurant-cover.webp",
+            alt: "The Old Restaurant building with its carved sign and timber-clad frontage at Kamuthanga",
+          },
+          {
+            type: "image",
             src: "/properties/kamuthanga/old-restaurant-rooms-1.webp",
             alt: "Old Restaurant double room with a carved wooden bed and timber-panelled wall at Kamuthanga",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/old-restaurant-rooms-2.webp",
-            alt: "Ensuite bathroom with a glass shower and marble-tiled walls in the Old Restaurant Rooms",
+            src: "/properties/kamuthanga/oldrestaurant-kitchen.webp",
+            alt: "Shared kitchen with a marble island and gas cooker at the Old Restaurant Rooms",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/oldrestaurant-exterior.webp",
+            alt: "Paved walkway past the Old Restaurant rooms and dining area at Kamuthanga",
           },
         ],
       },
@@ -124,13 +134,23 @@ export const properties: Property[] = [
         media: [
           {
             type: "image",
-            src: "/properties/kamuthanga/poolside-rooms-1.webp",
-            alt: "Pool Side double room with a wooden bed and large curtained windows at Kamuthanga",
+            src: "/properties/kamuthanga/poolside-cover.webp",
+            alt: "Pool Side Rooms building beside the swimming pool with garden seating at Kamuthanga",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/poolside-rooms-2.webp",
-            alt: "Ensuite bathroom with a glass shower in the Pool Side Rooms",
+            src: "/properties/kamuthanga/poolside-room-1.webp",
+            alt: "Pool Side room with a wooden bed and sliding doors opening onto the pool garden",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/poolside-room-2.webp",
+            alt: "Pool Side room with a wall-mounted TV and sliding doors to the pool garden",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/poolside-grounds.webp",
+            alt: "Poolside lawn with parasols and loungers beside the swimming pool at Kamuthanga",
           },
         ],
       },
@@ -153,28 +173,23 @@ export const properties: Property[] = [
         media: [
           {
             type: "image",
-            src: "/properties/kamuthanga/family-house-3.webp",
-            alt: "Aerial view of the Family House, swimming pool and gardens at Kamuthanga",
+            src: "/properties/kamuthanga/familyhouse-cover.webp",
+            alt: "Family House exterior with a covered veranda, dining set and lawn at Kamuthanga",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/family-house-1.webp",
-            alt: "Family House living room with a sofa, armchair and garden-view windows",
+            src: "/properties/kamuthanga/familyhouse-living.webp",
+            alt: "Family House open-plan living and dining area with a breakfast bar",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/family-house-2.webp",
-            alt: "Family House covered patio with a wooden dining table for six",
+            src: "/properties/kamuthanga/familyhouse-dining.webp",
+            alt: "Family House dining table for six beside the kitchen",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/family-house-4.webp",
-            alt: "Family House bedroom with a carved wooden bed and floral linens",
-          },
-          {
-            type: "image",
-            src: "/properties/kamuthanga/family-house-5.webp",
-            alt: "Family House open-plan dining and living area with a stone-clad pillar",
+            src: "/properties/kamuthanga/familyhouse-kitchen.webp",
+            alt: "Family House modern kitchen with a granite island and breakfast bar",
           },
         ],
       },
@@ -219,6 +234,11 @@ export const properties: Property[] = [
             type: "image",
             src: "/properties/kamuthanga/cabin-bathroom.webp",
             alt: "Cabin ensuite with a glass shower and timber-clad walls",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/cabin-exterior.webp",
+            alt: "The timber Cabin set in a lush garden with a striped lawn at Kamuthanga",
           },
         ],
       },
