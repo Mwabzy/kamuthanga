@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Property } from "@/data/types";
 import { fromPrice, formatAmount, offerTag } from "@/lib/format";
+import LocalPrice from "./LocalPrice";
 
 /**
  * Hub card for a single property. Live cards link to `/<slug>`; `coming-soon`
@@ -58,6 +59,11 @@ export default function PropertyCard({ property }: { property: Property }) {
             <p className="text-sm text-ink">
               <span className="text-muted">from </span>
               <span className="font-semibold">{formatAmount(price)}</span>
+              <LocalPrice
+                kes={price.amount}
+                prefix
+                className="ml-1 text-muted"
+              />
             </p>
           ) : (
             <span className="text-sm text-muted">Opening soon</span>

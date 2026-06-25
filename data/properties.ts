@@ -73,6 +73,26 @@ export const properties: Property[] = [
         src: "/properties/kamuthanga/gallery-terrace.webp",
         alt: "Garden terrace with parasol-shaded dining tables beside the main house at Kamuthanga",
       },
+      {
+        type: "image",
+        src: "/properties/kamuthanga/gallery-grounds.webp",
+        alt: "The Family House and its wide manicured lawn under big skies at Kamuthanga",
+      },
+      {
+        type: "image",
+        src: "/properties/kamuthanga/cabin-exterior.webp",
+        alt: "The timber Cabin set among banana plants and a striped lawn at Kamuthanga",
+      },
+      {
+        type: "image",
+        src: "/properties/kamuthanga/gallery-courtyard.webp",
+        alt: "Tiled courtyard in front of a countryside cottage at Kamuthanga",
+      },
+      {
+        type: "image",
+        src: "/properties/kamuthanga/oldrestaurant-cover.webp",
+        alt: "The Old Restaurant building with its carved sign and timber-clad frontage at Kamuthanga",
+      },
     ],
     units: [
       {

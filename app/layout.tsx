@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import CurrencyProvider from "@/components/CurrencyProvider";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -48,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
-        {children}
+        <CurrencyProvider>{children}</CurrencyProvider>
         <Analytics />
       </body>
     </html>

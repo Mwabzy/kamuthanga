@@ -12,6 +12,7 @@ import VisitOptions from "@/components/VisitOptions";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import StickyEnquire from "@/components/StickyEnquire";
 import Reveal from "@/components/Reveal";
+import CurrencyNote from "@/components/CurrencyNote";
 
 type Params = { slug: string };
 
@@ -174,6 +175,7 @@ export default function PropertyPage({ params }: { params: Params }) {
               title="Where you'll sleep"
               intro="Pick the room or house that fits your group — and whichever you choose, the pool is yours for the whole stay, whether it's a quiet morning swim or a lazy afternoon dip. Tap to enquire about any unit directly on WhatsApp."
             />
+            <CurrencyNote className="mt-3 text-sm text-muted" />
             <div className="mt-8 space-y-6">
               {property.units.map((unit, i) => (
                 <Reveal key={unit.id} delay={i * 80}>

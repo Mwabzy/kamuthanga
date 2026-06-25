@@ -3,6 +3,7 @@ import type { Property, VisitOption } from "@/data/types";
 import { formatMoney } from "@/lib/format";
 import { visitOptionEnquiryLink } from "@/lib/whatsapp";
 import WhatsAppButton from "./WhatsAppButton";
+import LocalPrice from "./LocalPrice";
 
 const CTA_LABEL: Record<VisitOption["kind"], string> = {
   day: "Plan a day visit",
@@ -42,6 +43,13 @@ export default function EventActivityCard({
         <h3 className="text-xl">{option.name}</h3>
         <p className="mt-1 text-sm font-medium text-brown">
           {option.price ? formatMoney(option.price) : "Pricing on request"}
+          {option.price && (
+            <LocalPrice
+              kes={option.price.amount}
+              prefix
+              className="ml-1.5 font-normal text-muted"
+            />
+          )}
         </p>
         <p className="mt-3 text-pretty text-sm text-muted">
           {option.description}

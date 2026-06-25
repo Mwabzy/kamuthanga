@@ -7,6 +7,7 @@ import { formatMoney } from "@/lib/format";
 import { unitEnquiryLink } from "@/lib/whatsapp";
 import WhatsAppButton from "./WhatsAppButton";
 import Lightbox from "./Lightbox";
+import LocalPrice from "./LocalPrice";
 
 /**
  * An overnight room/unit type with photos, capacity, features, price + CTA.
@@ -52,9 +53,12 @@ export default function UnitCard({
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-start justify-between gap-4">
           <h3 className="text-2xl">{unit.name}</h3>
-          <span className="shrink-0 whitespace-nowrap rounded-full bg-sage/15 px-3 py-1 text-sm font-medium text-forest">
-            {formatMoney(unit.price)}
-          </span>
+          <div className="flex shrink-0 flex-col items-end gap-1">
+            <span className="whitespace-nowrap rounded-full bg-sage/15 px-3 py-1 text-sm font-medium text-forest">
+              {formatMoney(unit.price)}
+            </span>
+            <LocalPrice kes={unit.price.amount} className="text-xs text-muted" />
+          </div>
         </div>
 
         <p className="mt-1 text-sm font-medium text-brown">{unit.capacity}</p>
