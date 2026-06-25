@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Media } from "@/data/types";
 
 type LightboxProps = {
@@ -25,6 +26,10 @@ export default function Lightbox({
   onChange,
 }: LightboxProps) {
   const count = images.length;
+
+  // Portal target only exists in the browser; guard for SSR/first paint.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const next = useCallback(() => {
     if (index === null) return;
@@ -70,10 +75,14 @@ export default function Lightbox({
     }
   };
 
-  if (index === null || !images[index]) return null;
+  if (index === null || !images[index] || !mounted) return null;
   const current = images[index];
 
-  return (
+  // Render to <body> so the fixed overlay can't be trapped by an ancestor's
+  // containing block (e.g. the Reveal wrapper's `will-change: transform`) or
+  // clipped by a card's `overflow-hidden`. This is what was hiding the stays
+  // photo viewer on mobile.
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-4 backdrop-blur-sm"
       role="dialog"
@@ -150,7 +159,8 @@ export default function Lightbox({
           )}
         </figcaption>
       </figure>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
