@@ -72,4 +72,10 @@ export type Property = {
   whatsapp: string;
   /** 3–5 short selling points. */
   highlights: string[];
+  /**
+   * The property's own external website. Leave undefined while it's still being
+   * built — the page renders a disabled "Visit their website" button until a URL
+   * is added, at which point the button becomes a live link automatically.
+   */
+  website?: string;
 };

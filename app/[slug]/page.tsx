@@ -101,10 +101,34 @@ export default function PropertyPage({ params }: { params: Params }) {
             <p className="mt-5 text-pretty text-[clamp(1.05rem,2.2vw,1.2rem)] leading-relaxed text-ink/80">
               {property.about}
             </p>
-            <div className="mt-7">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <WhatsAppButton href={enquireHref} size="lg">
                 Plan a visit
               </WhatsAppButton>
+
+              {property.website ? (
+                <a
+                  href={property.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-forest/30 bg-offwhite/70 px-6 py-3.5 text-base font-medium text-forest transition-colors hover:border-forest/60 hover:bg-offwhite"
+                >
+                  Visit their website
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  title="Website coming soon — we're still building it"
+                  className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-full border border-taupe/40 px-6 py-3.5 text-base font-medium text-muted/60"
+                >
+                  Visit their website
+                  <span className="rounded-full bg-taupe/20 px-2 py-0.5 text-xs font-medium text-muted">
+                    Coming soon
+                  </span>
+                </button>
+              )}
             </div>
           </Reveal>
 
