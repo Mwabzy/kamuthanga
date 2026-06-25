@@ -42,11 +42,11 @@ export const properties: Property[] = [
       "Self-catering, or add an in-house chef & full-board meals",
     ],
     gallery: [
-      // Centrepiece of the bento — a stay/interior shot framed by the amenity photos.
+      // Centrepiece of the bento — the aerial establishing shot framed by amenity photos.
       {
         type: "image",
-        src: "/properties/kamuthanga/familyhouse-living.webp",
-        alt: "Bright Family House living and dining area, one of the stays at Kamuthanga",
+        src: "/properties/kamuthanga/aerial-view-2.webp",
+        alt: "Aerial view of Kamuthanga — the main house, swimming pool and landscaped gardens with a countryside backdrop",
       },
       {
         type: "image",
@@ -132,6 +132,11 @@ export const properties: Property[] = [
             src: "/properties/kamuthanga/oldrestaurant-exterior.webp",
             alt: "Paved walkway past the Old Restaurant rooms and dining area at Kamuthanga",
           },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/oldrestaurant-bathroom.webp",
+            alt: "Ensuite bathroom with a glass shower and marble-tiled walls in the Old Restaurant Rooms",
+          },
         ],
       },
       {
@@ -172,6 +177,21 @@ export const properties: Property[] = [
             src: "/properties/kamuthanga/poolside-grounds.webp",
             alt: "Poolside lawn with parasols and loungers beside the swimming pool at Kamuthanga",
           },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/poolside-cabinets.webp",
+            alt: "Fitted wardrobe with gloss cabinets in the Pool Side Rooms at Kamuthanga",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/poolside-bathroom.webp",
+            alt: "Ensuite bathroom with a glass shower in the Pool Side Rooms at Kamuthanga",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/poolside-bathroom-2.webp",
+            alt: "Ensuite bathroom with shower and WC in the Pool Side Rooms at Kamuthanga",
+          },
         ],
       },
       {
@@ -195,6 +215,11 @@ export const properties: Property[] = [
             type: "image",
             src: "/properties/kamuthanga/familyhouse-cover.webp",
             alt: "Family House exterior with a covered veranda, dining set and lawn at Kamuthanga",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/familyhouse-bedroom.webp",
+            alt: "Family House master bedroom with a carved wooden bed and floral linens at Kamuthanga",
           },
           {
             type: "image",
