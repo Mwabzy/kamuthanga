@@ -68,6 +68,11 @@ export const properties: Property[] = [
         src: "/properties/kamuthanga/gallery-party.webp",
         alt: "Timber entertainment area with a DJ booth and dance floor for events",
       },
+      {
+        type: "image",
+        src: "/properties/kamuthanga/gallery-terrace.webp",
+        alt: "Garden terrace with parasol-shaded dining tables beside the main house at Kamuthanga",
+      },
     ],
     units: [
       {
@@ -112,6 +117,11 @@ export const properties: Property[] = [
         media: [
           {
             type: "image",
+            src: "/properties/kamuthanga/family-house-3.webp",
+            alt: "Aerial view of the Family House, swimming pool and gardens at Kamuthanga",
+          },
+          {
+            type: "image",
             src: "/properties/kamuthanga/family-house-1.webp",
             alt: "Family House living room with a sofa, armchair and garden-view windows",
           },
@@ -135,13 +145,28 @@ export const properties: Property[] = [
         media: [
           {
             type: "image",
-            src: "/properties/kamuthanga/cabin-1.webp",
-            alt: "The Cabin's timber-clad sitting room with an L-shaped sofa at Kamuthanga",
+            src: "/properties/kamuthanga/cabin-lounge.webp",
+            alt: "Cabin living area with an L-shaped sofa and kitchenette in timber-clad walls",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/cabin-2.webp",
-            alt: "Covered veranda with woven armchairs at the Cabin, Kamuthanga",
+            src: "/properties/kamuthanga/cabin-bedroom.webp",
+            alt: "Cabin double bedroom with timber walls and garden-view windows",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/cabin-living.webp",
+            alt: "Cabin sitting room with a sofa, TV and large curtained windows",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/cabin-storage.webp",
+            alt: "Cabin bedroom with a wooden wardrobe and ensuite bathroom",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/cabin-bathroom.webp",
+            alt: "Cabin ensuite with a glass shower and timber-clad walls",
           },
         ],
       },
