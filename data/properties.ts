@@ -83,7 +83,13 @@ export const properties: Property[] = [
           "kitchenette for slow mornings and late-night tea. Single (one person) " +
           "KES 8,000 · Double (two people) KES 12,500. Self-catering, or add meals.",
         capacity: "Single (1 person) & double (2 people) rooms",
-        features: ["Kitchenette", "Ensuite", "Self-catering option", "Free parking"],
+        features: [
+          "Kitchenette",
+          "Ensuite",
+          "Self-catering option",
+          "Free parking",
+          "Pool access included",
+        ],
         // "from" price = single occupancy; double is KES 12,500 (see description).
         price: { amount: 8000, currency: "KES", per: "night" },
         media: [
@@ -112,6 +118,7 @@ export const properties: Property[] = [
           "Sitting & dining room",
           "Full kitchen",
           "Self-catering / chef option",
+          "Pool access included",
         ],
         price: { amount: 20000, currency: "KES", per: "night" },
         media: [
@@ -140,7 +147,13 @@ export const properties: Property[] = [
           "and a kitchenette — the quietest, most private spot on the farm. " +
           "Self-catering, or add an in-house chef for KES 2,500 per day.",
         capacity: "1 bedroom · maximum 3 adults",
-        features: ["1 bedroom", "2 bathrooms", "Kitchenette", "Sitting room"],
+        features: [
+          "1 bedroom",
+          "2 bathrooms",
+          "Kitchenette",
+          "Sitting room",
+          "Pool access included",
+        ],
         price: { amount: 15000, currency: "KES", per: "night" },
         media: [
           {
