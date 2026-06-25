@@ -166,6 +166,16 @@ export const properties: Property[] = [
             src: "/properties/kamuthanga/family-house-2.webp",
             alt: "Family House covered patio with a wooden dining table for six",
           },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/family-house-4.webp",
+            alt: "Family House bedroom with a carved wooden bed and floral linens",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/family-house-5.webp",
+            alt: "Family House open-plan dining and living area with a stone-clad pillar",
+          },
         ],
       },
       {
