@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import type { Media } from "@/data/types";
 
 type LightboxProps = {
@@ -51,6 +51,25 @@ export default function Lightbox({
     };
   }, [index, onClose, next, prev]);
 
+  // Touch swipe (mobile): horizontal drag pages between photos.
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    touchStart.current = null;
+    // Only treat as a swipe when it's clearly horizontal.
+    if (count > 1 && Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next();
+      else prev();
+    }
+  };
+
   if (index === null || !images[index]) return null;
   const current = images[index];
 
@@ -79,8 +98,10 @@ export default function Lightbox({
       )}
 
       <figure
-        className="relative max-h-[88vh] w-full max-w-4xl"
+        className="relative max-h-[88vh] w-full max-w-4xl select-none"
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
         <Image
           src={current.src}
@@ -88,9 +109,39 @@ export default function Lightbox({
           width={1600}
           height={1066}
           sizes="100vw"
-          className="mx-auto h-auto max-h-[82vh] w-auto rounded-xl object-contain"
+          draggable={false}
+          className="pointer-events-none mx-auto h-auto max-h-[78vh] w-auto rounded-xl object-contain"
         />
-        <figcaption className="mt-3 text-center text-sm text-offwhite/70">
+
+        {count > 1 && (
+          <>
+            {/* Tappable dots — easy to see and use on mobile */}
+            <div className="mt-4 flex items-center justify-center gap-2">
+              {images.map((img, i) => (
+                <button
+                  key={img.src}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onChange(i);
+                  }}
+                  aria-label={`Go to photo ${i + 1}`}
+                  aria-current={i === index}
+                  className={`h-2.5 rounded-full transition-all ${
+                    i === index
+                      ? "w-6 bg-offwhite"
+                      : "w-2.5 bg-offwhite/40 hover:bg-offwhite/70"
+                  }`}
+                />
+              ))}
+            </div>
+            <p className="mt-2 text-center text-xs text-offwhite/40 sm:hidden">
+              Swipe or tap the dots to browse
+            </p>
+          </>
+        )}
+
+        <figcaption className="mt-2 text-center text-sm text-offwhite/70">
           {current.alt}
           {count > 1 && (
             <span className="ml-2 text-offwhite/40">
@@ -117,8 +168,8 @@ function NavButton({
         e.stopPropagation();
         onClick();
       }}
-      className={`absolute top-1/2 -translate-y-1/2 rounded-full bg-offwhite/10 p-3 text-offwhite hover:bg-offwhite/20 ${
-        side === "left" ? "left-3" : "right-3"
+      className={`absolute top-1/2 z-10 -translate-y-1/2 rounded-full bg-ink/55 p-3 text-offwhite ring-1 ring-offwhite/20 backdrop-blur-sm transition-colors hover:bg-ink/75 ${
+        side === "left" ? "left-2 sm:left-3" : "right-2 sm:right-3"
       }`}
       aria-label={side === "left" ? "Previous image" : "Next image"}
     >
