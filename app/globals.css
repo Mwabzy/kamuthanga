@@ -68,6 +68,29 @@
   }
 }
 
+/* Gentle "scroll down" nudge for the hero cue — subtle, not bouncy. */
+@keyframes scroll-nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.animate-scroll-nudge {
+  animation: scroll-nudge 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-nudge {
+    animation: none;
+  }
+}
+
 /* Reveal-on-scroll: starts hidden, .is-visible reveals. Respects reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {

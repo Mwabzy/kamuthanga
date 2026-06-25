@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { properties, getProperty } from "@/data/properties";
 import { site } from "@/lib/site";
@@ -13,6 +14,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import StickyEnquire from "@/components/StickyEnquire";
 import Reveal from "@/components/Reveal";
 import CurrencyNote from "@/components/CurrencyNote";
+import PropertyCard from "@/components/PropertyCard";
 
 type Params = { slug: string };
 
@@ -82,6 +84,9 @@ export default function PropertyPage({ params }: { params: Params }) {
   }
 
   const enquireHref = generalEnquiryLink(property);
+  // Other properties to surface as a "keep exploring" cross-link (drives a
+  // second pageview, which is what actually moves bounce rate).
+  const others = properties.filter((p) => p.slug !== property.slug);
 
   return (
     <>
@@ -94,6 +99,13 @@ export default function PropertyPage({ params }: { params: Params }) {
       />
 
       <main className="pb-28">
+        {/* Gallery first — lead with visuals, not text (esp. on mobile) */}
+        {property.gallery.length > 0 && (
+          <section className="container-x pt-10 sm:pt-14">
+            <Gallery media={property.gallery} />
+          </section>
+        )}
+
         {/* About + highlights */}
         <section className="container-x grid grid-cols-1 gap-10 py-16 lg:grid-cols-[1.4fr_1fr] sm:py-20">
           <Reveal>
@@ -186,16 +198,6 @@ export default function PropertyPage({ params }: { params: Params }) {
           </section>
         )}
 
-        {/* Gallery */}
-        {property.gallery.length > 0 && (
-          <section className="container-x py-12">
-            <SectionTitle eyebrow="Gallery" title="A look around" />
-            <div className="mt-8">
-              <Gallery media={property.gallery} />
-            </div>
-          </section>
-        )}
-
         {/* Closing CTA */}
         <section className="container-x py-12">
           <Reveal>
@@ -220,6 +222,39 @@ export default function PropertyPage({ params }: { params: Params }) {
             </div>
           </Reveal>
         </section>
+
+        {/* Keep exploring — a second page to visit (lowers bounce) */}
+        {others.length > 0 && (
+          <section className="container-x py-12">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="eyebrow">Keep exploring</p>
+                <h2 className="h-fluid-2 mt-3">More weekend escapes</h2>
+              </div>
+              <Link
+                href="/"
+                className="hidden items-center gap-1 text-sm font-medium text-forest hover:text-forest/80 sm:inline-flex"
+              >
+                View all escapes
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {others.map((p, i) => (
+                <Reveal key={p.slug} delay={i * 90}>
+                  <PropertyCard property={p} />
+                </Reveal>
+              ))}
+            </div>
+            <Link
+              href="/"
+              className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-forest hover:text-forest/80 sm:hidden"
+            >
+              View all escapes
+              <span aria-hidden="true">→</span>
+            </Link>
+          </section>
+        )}
       </main>
 
       <SiteFooter />

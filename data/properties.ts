@@ -289,6 +289,13 @@ export const properties: Property[] = [
           "retreats. We'll help you shape the day around the water and the grounds. " +
           "Pricing on request based on group size and needs.",
         // price intentionally omitted — events are quoted on request
+        media: [
+          {
+            type: "image",
+            src: "/properties/kamuthanga/gallery-party.webp",
+            alt: "Timber entertainment area with a DJ booth and dance floor set up for an event at Kamuthanga",
+          },
+        ],
       },
       {
         id: "fish-farm-tour",
