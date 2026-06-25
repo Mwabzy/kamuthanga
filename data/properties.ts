@@ -79,29 +79,58 @@ export const properties: Property[] = [
         id: "old-restaurant-rooms",
         name: "Old Restaurant Rooms",
         description:
-          "Characterful rooms in the converted old restaurant, each with a handy " +
-          "kitchenette for slow mornings and late-night tea. Single (one person) " +
-          "KES 8,000 · Double (two people) KES 12,500. Self-catering, or add meals.",
+          "Characterful, comfortable rooms in the converted old restaurant. " +
+          "Single (one person) KES 6,000 · Double (two people) KES 9,000. " +
+          "Self-catering, or add meals.",
         capacity: "Single (1 person) & double (2 people) rooms",
         features: [
-          "Kitchenette",
           "Ensuite",
           "Self-catering option",
           "Free parking",
           "Pool access included",
         ],
-        // "from" price = single occupancy; double is KES 12,500 (see description).
-        price: { amount: 8000, currency: "KES", per: "night" },
+        // "from" price = single occupancy; double is KES 9,000 (see description).
+        price: { amount: 6000, currency: "KES", per: "night" },
         media: [
           {
             type: "image",
             src: "/properties/kamuthanga/old-restaurant-rooms-1.webp",
-            alt: "Double bedroom with a carved wooden bed and timber-panelled wall in the Old Restaurant Rooms",
+            alt: "Old Restaurant double room with a carved wooden bed and timber-panelled wall at Kamuthanga",
           },
           {
             type: "image",
             src: "/properties/kamuthanga/old-restaurant-rooms-2.webp",
-            alt: "The carved 'Old Restaurant' sign above the timber-clad building at Kamuthanga",
+            alt: "Ensuite bathroom with a glass shower and marble-tiled walls in the Old Restaurant Rooms",
+          },
+        ],
+      },
+      {
+        id: "pool-side-rooms",
+        name: "Pool Side Rooms",
+        description:
+          "Comfortable ensuite rooms right beside the pool, so a swim is only steps " +
+          "from your door. Single (one person) KES 9,000 · Double (two people) " +
+          "KES 12,500. Self-catering, or add an in-house chef for KES 2,500 per day.",
+        capacity: "Single (1 person) & double (2 people) rooms",
+        features: [
+          "Poolside location",
+          "Ensuite",
+          "Self-catering option",
+          "Pool access included",
+          "Free parking",
+        ],
+        // "from" price = single occupancy; double is KES 12,500 (see description).
+        price: { amount: 9000, currency: "KES", per: "night" },
+        media: [
+          {
+            type: "image",
+            src: "/properties/kamuthanga/poolside-rooms-1.webp",
+            alt: "Pool Side double room with a wooden bed and large curtained windows at Kamuthanga",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/poolside-rooms-2.webp",
+            alt: "Ensuite bathroom with a glass shower in the Pool Side Rooms",
           },
         ],
       },
