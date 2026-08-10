@@ -114,28 +114,38 @@ export const properties: Property[] = [
         media: [
           {
             type: "image",
-            src: "/properties/kamuthanga/oldrestaurant-cover.webp",
-            alt: "The Old Restaurant building with its carved sign and timber-clad frontage at Kamuthanga",
+            src: "/properties/kamuthanga/oldrestaurant-room-1.webp",
+            alt: "Double room with a polished wooden bed, white linen and a slatted timber feature wall at the Old Restaurant Rooms",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/old-restaurant-rooms-1.webp",
-            alt: "Old Restaurant double room with a carved wooden bed and timber-panelled wall at Kamuthanga",
+            src: "/properties/kamuthanga/oldrestaurant-room-mirror.webp",
+            alt: "Full-length wooden mirror reflecting the bed and pendant light in an Old Restaurant room",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/oldrestaurant-washroom.webp",
+            alt: "Ensuite bathroom with a walk-in glass shower, vessel basin and marble-look tiling at the Old Restaurant Rooms",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/oldrestaurant-towel.webp",
+            alt: "Fresh white towel on a chrome rail beside the shower in an Old Restaurant room",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/oldrestaurant-aerial.webp",
+            alt: "Paved walkway between the Old Restaurant rooms and the covered dining terrace at Kamuthanga",
+          },
+          {
+            type: "image",
+            src: "/properties/kamuthanga/oldrestaurant-arrival.webp",
+            alt: "Guest with a wheeled suitcase letting themselves into their room at the Old Restaurant",
           },
           {
             type: "image",
             src: "/properties/kamuthanga/oldrestaurant-kitchen.webp",
             alt: "Shared kitchen with a marble island and gas cooker at the Old Restaurant Rooms",
-          },
-          {
-            type: "image",
-            src: "/properties/kamuthanga/oldrestaurant-exterior.webp",
-            alt: "Paved walkway past the Old Restaurant rooms and dining area at Kamuthanga",
-          },
-          {
-            type: "image",
-            src: "/properties/kamuthanga/oldrestaurant-bathroom.webp",
-            alt: "Ensuite bathroom with a glass shower and marble-tiled walls in the Old Restaurant Rooms",
           },
         ],
       },
@@ -159,38 +169,28 @@ export const properties: Property[] = [
         media: [
           {
             type: "image",
-            src: "/properties/kamuthanga/poolside-cover.webp",
-            alt: "Pool Side Rooms building beside the swimming pool with garden seating at Kamuthanga",
+            src: "/properties/kamuthanga/poolside-bedroom.webp",
+            alt: "Pool Side room with a carved wooden bed, warm walls and a wide curtained window at Kamuthanga",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/poolside-room-1.webp",
-            alt: "Pool Side room with a wooden bed and sliding doors opening onto the pool garden",
+            src: "/properties/kamuthanga/poolside-view.webp",
+            alt: "View from inside a Pool Side room through open curtains to the pool and shaded garden table",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/poolside-room-2.webp",
-            alt: "Pool Side room with a wall-mounted TV and sliding doors to the pool garden",
+            src: "/properties/kamuthanga/poolside-ensuite.webp",
+            alt: "Ensuite bathroom with a glass shower, mirrored cabinet and grey marble tiling in the Pool Side Rooms",
           },
           {
             type: "image",
-            src: "/properties/kamuthanga/poolside-grounds.webp",
-            alt: "Poolside lawn with parasols and loungers beside the swimming pool at Kamuthanga",
+            src: "/properties/kamuthanga/poolside-pool.webp",
+            alt: "The swimming pool with parasols and the Pool Side Rooms building behind it at Kamuthanga",
           },
           {
             type: "image",
             src: "/properties/kamuthanga/poolside-cabinets.webp",
             alt: "Fitted wardrobe with gloss cabinets in the Pool Side Rooms at Kamuthanga",
-          },
-          {
-            type: "image",
-            src: "/properties/kamuthanga/poolside-bathroom.webp",
-            alt: "Ensuite bathroom with a glass shower in the Pool Side Rooms at Kamuthanga",
-          },
-          {
-            type: "image",
-            src: "/properties/kamuthanga/poolside-bathroom-2.webp",
-            alt: "Ensuite bathroom with shower and WC in the Pool Side Rooms at Kamuthanga",
           },
         ],
       },
