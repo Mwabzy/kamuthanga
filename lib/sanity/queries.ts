@@ -12,7 +12,8 @@ const MEDIA = `{
   alt,
   image,
   poster,
-  "videoUrl": video.asset->url
+  "videoUrl": video.asset->url,
+  "dimensions": image.asset->metadata.dimensions{width, height}
 }`;
 
 export const PROPERTIES_QUERY = `*[_type == "property" && defined(slug.current)]{

@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import type { Property, Unit } from "@/data/types";
+import type { Media, Property, Unit } from "@/data/types";
 import { formatMoney } from "@/lib/format";
 import { unitEnquiryLink } from "@/lib/whatsapp";
 import WhatsAppButton from "./WhatsAppButton";
+import ImagePreload from "./ImagePreload";
 import Lightbox from "./Lightbox";
 import LocalPrice from "./LocalPrice";
 
@@ -25,12 +26,20 @@ export default function UnitCard({
   const cover = images[0];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  // The cover thumbnail is a smaller variant than the lightbox needs, so warm
+  // the full-size version as soon as someone reaches for it.
+  const [warm, setWarm] = useState<Media[]>([]);
+  const warmUp = () => setWarm(cover ? [cover] : []);
+
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl border border-taupe/30 bg-offwhite shadow-soft sm:flex-row">
       {cover && (
         <button
           type="button"
           onClick={() => setOpenIndex(0)}
+          onPointerEnter={warmUp}
+          onTouchStart={warmUp}
+          onFocus={warmUp}
           className="group relative aspect-[4/3] w-full shrink-0 cursor-zoom-in overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-forest/50 sm:aspect-auto sm:w-2/5"
           aria-label={`View ${images.length} photos of the ${unit.name}`}
         >
@@ -87,6 +96,8 @@ export default function UnitCard({
           Enquire about {unit.name}
         </WhatsAppButton>
       </div>
+
+      <ImagePreload media={warm} />
 
       <Lightbox
         images={images}

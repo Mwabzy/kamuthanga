@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Media } from "@/data/types";
+import ImagePreload, { LIGHTBOX_SIZES } from "./ImagePreload";
 
 type LightboxProps = {
   /** Image-only media to page through. */
@@ -78,6 +79,16 @@ export default function Lightbox({
   if (index === null || !images[index] || !mounted) return null;
   const current = images[index];
 
+  // A swipe should paint an image the browser already holds rather than
+  // starting a download, so keep the neighbours warm. De-duplicated because
+  // prev and next are the same photo when there are only two.
+  const neighbours: Media[] =
+    count > 1
+      ? [(index + 1) % count, (index - 1 + count) % count]
+          .filter((i, pos, all) => i !== index && all.indexOf(i) === pos)
+          .map((i) => images[i])
+      : [];
+
   // Render to <body> so the fixed overlay can't be trapped by an ancestor's
   // containing block (e.g. the Reveal wrapper's `will-change: transform`) or
   // clipped by a card's `overflow-hidden`. This is what was hiding the stays
@@ -115,12 +126,15 @@ export default function Lightbox({
         <Image
           src={current.src}
           alt={current.alt}
-          width={1600}
-          height={1066}
-          sizes="100vw"
+          width={current.width ?? 1600}
+          height={current.height ?? 1066}
+          sizes={LIGHTBOX_SIZES}
           draggable={false}
           className="pointer-events-none mx-auto h-auto max-h-[78vh] w-auto rounded-xl object-contain"
         />
+
+        {/* Keeps a swipe on cache instead of the network. */}
+        <ImagePreload media={neighbours} />
 
         {count > 1 && (
           <>

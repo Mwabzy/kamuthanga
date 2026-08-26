@@ -20,6 +20,7 @@ type RawMedia = {
   image?: SanityImageSource;
   poster?: SanityImageSource;
   videoUrl?: string;
+  dimensions?: { width: number; height: number };
 };
 
 type RawProperty = {
@@ -75,7 +76,13 @@ function toMedia(raw: RawMedia | undefined, width?: number): Media | null {
   }
 
   if (!raw.image) return null;
-  return { type: "image", src: imageUrl(raw.image, width), alt };
+  return {
+    type: "image",
+    src: imageUrl(raw.image, width),
+    alt,
+    width: raw.dimensions?.width,
+    height: raw.dimensions?.height,
+  };
 }
 
 function toMediaList(raw: RawMedia[] | undefined, width?: number): Media[] {

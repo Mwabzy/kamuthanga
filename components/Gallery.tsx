@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { Media } from "@/data/types";
+import ImagePreload from "./ImagePreload";
 import Lightbox from "./Lightbox";
 import Reveal from "./Reveal";
 
@@ -32,6 +33,15 @@ export default function Gallery({ media }: { media: Media[] }) {
   const images = media.filter((m) => m.type === "image");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  // Start fetching the full-size photo the moment someone shows intent, so the
+  // lightbox opens on a cached image rather than a fresh download. Thumbnails
+  // are a much smaller variant, so they do not warm it themselves.
+  const [warm, setWarm] = useState<Media[]>([]);
+  const warmUp = (m: Media) =>
+    setWarm((prev) =>
+      prev.some((p) => p.src === m.src) ? prev : [...prev, m],
+    );
+
   if (media.length === 0) return null;
 
   return (
@@ -58,6 +68,9 @@ export default function Gallery({ media }: { media: Media[] }) {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(images.indexOf(m))}
+                  onPointerEnter={() => warmUp(m)}
+                  onTouchStart={() => warmUp(m)}
+                  onFocus={() => warmUp(m)}
                   className="block h-full w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-forest/50"
                   aria-label={`Open image: ${m.alt}`}
                 >
@@ -78,6 +91,8 @@ export default function Gallery({ media }: { media: Media[] }) {
           </Reveal>
         ))}
       </div>
+
+      <ImagePreload media={warm} />
 
       <Lightbox
         images={images}

@@ -23,6 +23,12 @@ export type Media = {
   src: string;
   alt: string;
   type: MediaType;
+  /**
+   * Intrinsic pixel size, when the CMS knows it. Lets `next/image` reserve the
+   * right box for a photo instead of assuming one shape for every image.
+   */
+  width?: number;
+  height?: number;
   /** Poster frame for videos (a `.jpg` produced by the convert-media script). */
   poster?: string;
 };
