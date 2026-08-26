@@ -2,8 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    // Local media lives in /public/properties/<slug>/. No remote loaders needed for v1.
+    // Property media is served from Sanity's CDN; /public still holds the OG
+    // cards and brand assets.
     formats: ["image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/images/**",
+      },
+    ],
   },
 };
 

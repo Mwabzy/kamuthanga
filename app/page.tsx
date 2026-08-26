@@ -1,12 +1,17 @@
-import { properties } from "@/data/properties";
+import { getProperties } from "@/lib/sanity/properties";
 import { site } from "@/lib/site";
 import PropertyCard from "@/components/PropertyCard";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 
-export default function HubPage() {
-  // Live first, coming-soon last — but otherwise honour data-file order.
+// Re-check Sanity for edits every 5 minutes without a redeploy.
+export const revalidate = 300;
+
+export default async function HubPage() {
+  const properties = await getProperties();
+
+  // Live first, coming-soon last — but otherwise honour CMS order.
   const ordered = [...properties].sort((a, b) => {
     if (a.status === b.status) return 0;
     return a.status === "live" ? -1 : 1;

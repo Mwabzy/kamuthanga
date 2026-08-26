@@ -1,9 +1,10 @@
 /**
  * Mwabili content types.
  *
- * The whole site is generated from a single typed array of `Property` objects
- * (see ./properties.ts). There is no database or CMS: adding a property means
- * adding one object here and dropping media in `public/properties/<slug>/`.
+ * These describe the shape every component consumes. The content itself lives
+ * in Sanity (project `wqwaj8qw`, dataset `production`) and is fetched and
+ * mapped into these types by `lib/sanity/properties.ts`, so components never
+ * see a Sanity document. Edit the content model in `studio/schemaTypes/`.
  */
 
 export type Currency = "KES";

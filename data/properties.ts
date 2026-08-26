@@ -1,19 +1,16 @@
 import type { Property } from "./types";
 
 /**
- * Single source of truth for every property on the Mwabili hub.
+ * LEGACY CONTENT SNAPSHOT - no longer rendered by the site.
  *
- * To add a property:
- *   1. Append a new `Property` object to this array.
- *   2. Drop raw iPhone media in `media-src/<slug>/`, run `npm run convert-media`,
- *      and reference the converted files at `/properties/<slug>/...`.
- * The hub and routes render the new property automatically — no code changes.
+ * The hub and property pages now read from Sanity; this array was the source
+ * these documents were seeded from. It is kept for two reasons:
+ *   1. `scripts/generate-og.mjs` still reads property names out of this file
+ *      to build the static OG cards.
+ *   2. It is the rollback path if the CMS ever needs to be backed out.
  *
- * Prices and media paths below are PLACEHOLDERS — swap them for the real
- * inventory + converted media when ready.
- *
- * TODO(booking): when a deposit/booking engine is added, units/visitOptions
- * will gain a `bookable`/`depositAmount` field that the WhatsApp CTA can defer to.
+ * Editing it changes nothing on the site. Edit content in the Studio instead:
+ * `cd studio && npm run dev`.
  */
 export const properties: Property[] = [
   {

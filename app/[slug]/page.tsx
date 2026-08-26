@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { properties, getProperty } from "@/data/properties";
+import {
+  getProperties,
+  getProperty,
+  getPropertySlugs,
+} from "@/lib/sanity/properties";
 import { site } from "@/lib/site";
 import { generalEnquiryLink } from "@/lib/whatsapp";
 import SiteHeader from "@/components/SiteHeader";
@@ -19,12 +23,20 @@ import PropertyCard from "@/components/PropertyCard";
 type Params = { slug: string };
 
 // Pre-render every property at build time (SSG) for Vercel.
-export function generateStaticParams(): Params[] {
-  return properties.map((p) => ({ slug: p.slug }));
+// Re-check Sanity for edits every 5 minutes without a redeploy.
+export const revalidate = 300;
+
+export async function generateStaticParams(): Promise<Params[]> {
+  const slugs = await getPropertySlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const property = getProperty(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const property = await getProperty(params.slug);
   if (!property) return {};
 
   const title = `${property.name} — ${property.location}`;
@@ -75,8 +87,12 @@ function SectionTitle({
   );
 }
 
-export default function PropertyPage({ params }: { params: Params }) {
-  const property = getProperty(params.slug);
+export default async function PropertyPage({
+  params,
+}: {
+  params: Params;
+}) {
+  const property = await getProperty(params.slug);
 
   // Unknown slugs and not-yet-launched properties have no public page.
   if (!property || property.status !== "live") {
@@ -86,7 +102,8 @@ export default function PropertyPage({ params }: { params: Params }) {
   const enquireHref = generalEnquiryLink(property);
   // Other properties to surface as a "keep exploring" cross-link (drives a
   // second pageview, which is what actually moves bounce rate).
-  const others = properties.filter((p) => p.slug !== property.slug);
+  const all = await getProperties();
+  const others = all.filter((p) => p.slug !== property.slug);
 
   return (
     <>
