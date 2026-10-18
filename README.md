@@ -1,4 +1,4 @@
-# Mwabili
+# Mwabili Weekend Escapes
 
 A premium, mobile-first hub for **Mwabili** — a curator of weekend escapes near
 Nairobi, Kenya. Think "Linktree, but far richer": a branded hub that showcases
