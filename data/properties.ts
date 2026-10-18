@@ -108,6 +108,7 @@ export const properties: Property[] = [
         ],
         // "from" price = single occupancy; double is KES 9,000 (see description).
         price: { amount: 6000, currency: "KES", per: "night" },
+        groupRates: [],
         media: [
           {
             type: "image",
@@ -163,6 +164,7 @@ export const properties: Property[] = [
         ],
         // "from" price = single occupancy; double is KES 12,500 (see description).
         price: { amount: 9000, currency: "KES", per: "night" },
+        groupRates: [],
         media: [
           {
             type: "image",
@@ -207,6 +209,7 @@ export const properties: Property[] = [
           "Pool access included",
         ],
         price: { amount: 20000, currency: "KES", per: "night" },
+        groupRates: [],
         media: [
           {
             type: "image",
@@ -251,6 +254,7 @@ export const properties: Property[] = [
           "Pool access included",
         ],
         price: { amount: 15000, currency: "KES", per: "night" },
+        groupRates: [],
         media: [
           {
             type: "image",

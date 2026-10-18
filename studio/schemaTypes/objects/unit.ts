@@ -45,6 +45,24 @@ export const unit = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'groupRates',
+      title: 'Group rates',
+      description:
+        'Nightly price by number of guests. Leave empty if the unit has a single price. The site lets guests pick a group size and see their rate.',
+      type: 'array',
+      of: [defineArrayMember({ type: 'groupRate' })],
+      validation: (rule) =>
+        rule.custom((rates: Array<{ minGuests?: number; maxGuests?: number }> | undefined) => {
+          const sorted = [...(rates ?? [])].sort((a, b) => (a.minGuests ?? 0) - (b.minGuests ?? 0))
+          for (let i = 1; i < sorted.length; i++) {
+            if ((sorted[i].minGuests ?? 0) <= (sorted[i - 1].maxGuests ?? 0)) {
+              return 'Guest ranges overlap'
+            }
+          }
+          return true
+        }),
+    }),
+    defineField({
       name: 'media',
       type: 'array',
       of: [defineArrayMember({ type: 'media' })],

@@ -1,5 +1,6 @@
 import { cache } from "react";
 import type {
+  GroupRate,
   Media,
   Money,
   Property,
@@ -42,6 +43,7 @@ type RawProperty = {
     capacity: string;
     features?: string[];
     price: Money;
+    groupRates?: Partial<GroupRate>[];
     media?: RawMedia[];
   }[];
   visitOptions?: {
@@ -91,6 +93,19 @@ function toMediaList(raw: RawMedia[] | undefined, width?: number): Media[] {
     .filter((m): m is Media => m !== null);
 }
 
+/** Drop half-filled rows and sort by group size, so the picker can step through them. */
+function toGroupRates(raw: Partial<GroupRate>[] | undefined): GroupRate[] {
+  return (raw ?? [])
+    .filter(
+      (r): r is GroupRate =>
+        typeof r.minGuests === "number" &&
+        typeof r.amount === "number" &&
+        typeof r.maxGuests === "number" &&
+        r.maxGuests >= r.minGuests,
+    )
+    .sort((a, b) => a.minGuests - b.minGuests);
+}
+
 function toProperty(raw: RawProperty): Property | null {
   // The hero is the one piece of media the page cannot render without.
   const hero = toMedia(raw.hero, 2000);
@@ -103,6 +118,7 @@ function toProperty(raw: RawProperty): Property | null {
     capacity: u.capacity,
     features: u.features ?? [],
     price: u.price,
+    groupRates: toGroupRates(u.groupRates),
     media: toMediaList(u.media, 1400),
   }));
 

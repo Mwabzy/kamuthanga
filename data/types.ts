@@ -33,6 +33,14 @@ export type Media = {
   poster?: string;
 };
 
+/** Nightly rate for a range of guests, e.g. 6–8 guests → KES 25,000. */
+export type GroupRate = {
+  minGuests: number;
+  maxGuests: number;
+  /** KES per night for the whole unit. */
+  amount: number;
+};
+
 /** An overnight room / unit type. */
 export type Unit = {
   id: string;
@@ -42,6 +50,8 @@ export type Unit = {
   capacity: string;
   features: string[];
   price: Money;
+  /** Sorted by `minGuests`. Empty when the unit has a single price. */
+  groupRates: GroupRate[];
   media: Media[];
 };
 

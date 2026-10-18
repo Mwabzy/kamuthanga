@@ -35,6 +35,7 @@ export const PROPERTIES_QUERY = `*[_type == "property" && defined(slug.current)]
     capacity,
     features,
     price{amount, currency, per},
+    groupRates[]{minGuests, maxGuests, amount},
     media[] ${MEDIA}
   },
   visitOptions[]{

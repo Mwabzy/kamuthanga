@@ -25,9 +25,17 @@ export function generalEnquiryLink(property: Property): string {
   return buildLink(property.whatsapp, text);
 }
 
-/** Per-unit overnight enquiry, e.g. the Cabin at Kamuthanga. */
-export function unitEnquiryLink(property: Property, unit: Unit): string {
-  const text = `Hi ${BRAND} 👋 I'd like to enquire about staying in the *${unit.name}* at *${property.name}*. Is it available?`;
+/**
+ * Per-unit overnight enquiry, e.g. the Cabin at Kamuthanga. Names the group
+ * size when the guest has picked one from the unit's group rates.
+ */
+export function unitEnquiryLink(
+  property: Property,
+  unit: Unit,
+  guests?: number,
+): string {
+  const group = guests ? ` for *${guests} guests*` : "";
+  const text = `Hi ${BRAND} 👋 I'd like to enquire about staying in the *${unit.name}* at *${property.name}*${group}. Is it available?`;
   return buildLink(property.whatsapp, text);
 }
 

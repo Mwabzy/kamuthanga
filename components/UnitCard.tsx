@@ -9,6 +9,7 @@ import WhatsAppButton from "./WhatsAppButton";
 import ImagePreload from "./ImagePreload";
 import Lightbox from "./Lightbox";
 import LocalPrice from "./LocalPrice";
+import GroupRates from "./GroupRates";
 
 /**
  * An overnight room/unit type with photos, capacity, features, price + CTA.
@@ -25,6 +26,10 @@ export default function UnitCard({
   const images = unit.media.filter((m) => m.type === "image");
   const cover = images[0];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  // Start the picker at the smallest group the unit is priced for.
+  const hasGroupRates = unit.groupRates.length > 0;
+  const [guests, setGuests] = useState(unit.groupRates[0]?.minGuests ?? 0);
 
   // The cover thumbnail is a smaller variant than the lightbox needs, so warm
   // the full-size version as soon as someone reaches for it.
@@ -64,6 +69,7 @@ export default function UnitCard({
           <h3 className="text-2xl">{unit.name}</h3>
           <div className="flex shrink-0 flex-col items-end gap-1">
             <span className="whitespace-nowrap rounded-full bg-sage/15 px-3 py-1 text-sm font-medium text-forest">
+              {hasGroupRates && "From "}
               {formatMoney(unit.price)}
             </span>
             <LocalPrice kes={unit.price.amount} className="text-xs text-muted" />
@@ -86,9 +92,13 @@ export default function UnitCard({
           </ul>
         )}
 
+        {hasGroupRates && (
+          <GroupRates rates={unit.groupRates} guests={guests} onChange={setGuests} />
+        )}
+
         <div className="mt-6 flex-1" />
         <WhatsAppButton
-          href={unitEnquiryLink(property, unit)}
+          href={unitEnquiryLink(property, unit, hasGroupRates ? guests : undefined)}
           variant="outline"
           className="self-start"
           ariaLabel={`Enquire about staying in the ${unit.name} at ${property.name}`}
