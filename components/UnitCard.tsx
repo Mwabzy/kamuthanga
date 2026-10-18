@@ -96,6 +96,10 @@ export default function UnitCard({
           <GroupRates rates={unit.groupRates} guests={guests} onChange={setGuests} />
         )}
 
+        {unit.ratesNote && (
+          <p className="mt-3 text-pretty text-xs text-muted">{unit.ratesNote}</p>
+        )}
+
         <div className="mt-6 flex-1" />
         <WhatsAppButton
           href={unitEnquiryLink(property, unit, hasGroupRates ? guests : undefined)}

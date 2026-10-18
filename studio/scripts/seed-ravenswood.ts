@@ -8,8 +8,8 @@
  * by legacySrc or original filename) are skipped, missing units are created,
  * the gallery is only filled when it is empty, and group rates are always reset
  * to the Ravenswood catalogue (public/properties/ravenswood/catalogue.jpeg).
- * Capacity and the headline price are only filled when missing, so edits made
- * in the Studio stay.
+ * Capacity, the headline price and the rates note are only filled when missing,
+ * so edits made in the Studio stay.
  *
  *   npx sanity exec scripts/seed-ravenswood.ts --with-user-token
  */
@@ -45,6 +45,10 @@ const catalogueRates = (maxGuests: number): Rate[] => [
   { minGuests: 5, maxGuests: 5, amount: 22500 },
   { minGuests: 6, maxGuests, amount: 25000 },
 ]
+
+/** Catering terms from the catalogue, the same for every unit. */
+const RATES_NOTE =
+  'Rates are on a self-catering basis, but a chef is available on request at KES 3,000–5,000, depending on the number of guests and the menu.'
 
 /** Photos in display order. Ones already on a unit keep their place at the front. */
 const units: UnitSeed[] = [
@@ -189,6 +193,7 @@ async function main() {
     unit.media = ((unit.media ?? []) as Media[]).map((m) => ({ ...m, alt: m.alt?.trim() }))
     unit.capacity ??= seed.capacity
     unit.price ??= { _type: 'money', amount: seed.rates[0].amount, currency: 'KES', per: 'night' }
+    unit.ratesNote ??= RATES_NOTE
     unit.groupRates = seed.rates.map((r) => ({ _key: key(), _type: 'groupRate', ...r }))
 
     const have = new Set<string>()

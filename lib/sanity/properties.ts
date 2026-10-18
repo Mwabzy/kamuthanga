@@ -44,6 +44,7 @@ type RawProperty = {
     features?: string[];
     price: Money;
     groupRates?: Partial<GroupRate>[];
+    ratesNote?: string;
     media?: RawMedia[];
   }[];
   visitOptions?: {
@@ -119,6 +120,7 @@ function toProperty(raw: RawProperty): Property | null {
     features: u.features ?? [],
     price: u.price,
     groupRates: toGroupRates(u.groupRates),
+    ratesNote: u.ratesNote?.trim() || undefined,
     media: toMediaList(u.media, 1400),
   }));
 

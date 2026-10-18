@@ -52,6 +52,8 @@ export type Unit = {
   price: Money;
   /** Sorted by `minGuests`. Empty when the unit has a single price. */
   groupRates: GroupRate[];
+  /** Small print under the price, e.g. catering terms. */
+  ratesNote?: string;
   media: Media[];
 };
 

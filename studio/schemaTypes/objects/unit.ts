@@ -63,6 +63,14 @@ export const unit = defineType({
         }),
     }),
     defineField({
+      name: 'ratesNote',
+      title: 'Rates note',
+      description:
+        'Shown under the price, e.g. "Self catering. A chef is available on request." Leave empty if there is nothing to add.',
+      type: 'text',
+      rows: 2,
+    }),
+    defineField({
       name: 'media',
       type: 'array',
       of: [defineArrayMember({ type: 'media' })],
